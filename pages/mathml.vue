@@ -39,6 +39,8 @@
 </script>
 
 <template>
+  <GoBack class="mb-4" href="/#projects" />
+
   <h1 class="text-4xl uppercase tracking-widest text-sky-600">
     MathML Core example
   </h1>
