@@ -1,3 +1,3 @@
 <template>
-  <main class="mt-20 dark:text-white lg:mt-0"><slot /></main>
+  <main class="mt-20 lg:mt-0 dark:text-white"><slot /></main>
 </template>
