@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { useClickOutside } from "../../hooks/useClickOutside";
 
+  import styles from "./styles.module.css";
+
   const { open, onClose, onToggle } = defineProps({
     open: {
       type: Boolean,
@@ -28,7 +30,7 @@
 </script>
 
 <template>
-  <div class="{styles.container}" ref="container">
+  <div :class="styles.container" ref="container">
     <NuxtLink
       href="/#home"
       class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mb-4 lg:mr-0 lg:rounded-full lg:border-8 lg:border-sky-700"
@@ -50,7 +52,7 @@
         DSM
       </span>
     </NuxtLink>
-    <div class="{styles.icon}">
+    <div :class="styles.icon">
       <button
         aria-label="Open the navigation menu"
         @click="onToggle"
@@ -62,7 +64,7 @@
       </button>
     </div>
 
-    <nav aria-label="Primary" class="{styles.sections}">
+    <nav aria-label="Primary" :class="styles.sections">
       <div class="h-0 overflow-hidden md:contents">
         <div class="pt-2 md:contents" ref="{mobileHeightRef}">
           <slot />
