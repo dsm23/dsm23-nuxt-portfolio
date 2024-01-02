@@ -39,11 +39,17 @@
             :href="`/#${label}`"
             v-for="label in items"
             v-bind:key="label"
-            class="[ styles.navLink, lg:justify-center, ] group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none"
+            :class="[
+              styles.navLink,
+              'group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center',
+            ]"
           >
             <span
               v-bind:key="label"
-              class="[ styles.navSpan, lg:px-0.5] px-px py-px group-focus:bg-yellow-500 group-focus:text-gray-900"
+              :class="[
+                styles.navSpan,
+                'px-px py-px group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5',
+              ]"
             >
               {{ label }}
             </span>
@@ -54,11 +60,17 @@
           <NuxtLink
             v-bind:key="label"
             :href="`/#${label}`"
-            class="[ styles.navLink, ] group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center"
+            :class="[
+              styles.navLink,
+              'group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center',
+            ]"
             v-for="label in items"
           >
             <span
-              class="[ styles.navSpan, lg:px-0.5] px-px py-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900"
+              :class="[
+                styles.navSpan,
+                'px-px py-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5',
+              ]"
             >
               {{ label }}
             </span>

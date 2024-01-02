@@ -1,0 +1,52 @@
+.container {
+  @apply sticky top-0 isolate z-10 grid w-full items-center justify-between bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900 p-3;
+  grid-template-areas:
+    "profile icon"
+    "sections sections";
+}
+
+.icon {
+  grid-area: icon;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.sections {
+  grid-area: sections;
+}
+
+@media screen(md) {
+  .container {
+    grid-template-areas: "profile sections";
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+@media screen(lg) {
+  .container {
+    @apply h-full w-64 content-center justify-center;
+    min-height: 100dvh;
+    grid-template-areas:
+      "profile"
+      "sections";
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+@media print {
+  .container {
+    display: static;
+  }
+
+  .icon {
+    display: none;
+  }
+}
