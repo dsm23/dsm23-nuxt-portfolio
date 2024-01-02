@@ -1,7 +1,9 @@
 <script setup lang="ts">
+  import type { Person } from "~/generated/generated";
+
   const { author } = defineProps({
     author: {
-      type: Object,
+      type: Object as PropType<Person>,
       default: {},
     },
   });
@@ -10,8 +12,8 @@
   const lastName = computed(() => author?.lastName);
   const email = computed(() => author?.email);
   const phone = computed(() => author?.phone);
-  const codesandbox = computed(() => author?.codesandbox as string);
-  const github = computed(() => author?.github as string);
+  const codesandbox = computed(() => author?.codesandbox ?? "");
+  const github = computed(() => author?.github ?? "");
   const shortBio = computed(() => author?.shortBio);
 </script>
 
