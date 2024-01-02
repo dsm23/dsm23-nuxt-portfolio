@@ -1,23 +1,17 @@
-import { For, splitProps } from "solid-js"; import type { Component, JSX } from
-"solid-js"; import Section from "~/components/section"; import {
-contentfulOptions, formatYears } from "~/utils"; import {
-documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
-
 <script setup lang="ts">
+  import type { ExperienceCompany } from "~/generated/generated";
   import formatYears from "~/utils/format-years";
-  import styles from "./styles.module.css";
   import { documentToVueComponents } from "~/utils/rich-text-vue-renderer";
   import contentfulOptions from "~/utils/content-options/";
 
+  import styles from "./styles.module.css";
+
   const { experiences } = defineProps({
     experiences: {
-      type: Array,
+      type: Array<ExperienceCompany>,
       default: [],
     },
   });
-  // interface Props extends HTMLAttributes<HTMLElement> {
-  //   experiences: Queries.ContentfulExperienceCompany[];
-  // }
 </script>
 
 <template>
@@ -32,7 +26,7 @@ documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
         endDate,
         startDate,
       } in experiences"
-      :key="companyName"
+      :key="`company-name-${companyName}`"
       :class="styles.container"
     >
       <h3 :class="styles.company">{{ companyName }}</h3>
@@ -44,7 +38,7 @@ documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
       </div>
 
       <div :class="styles.dates">
-        {{ formatYears(startDate, endDate) }}
+        {{ formatYears(startDate ?? "", endDate ?? "") }}
       </div>
     </div>
   </Section>

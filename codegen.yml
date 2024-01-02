@@ -1,0 +1,8 @@
+overwrite: true
+schema:
+  - https://graphql.contentful.com/content/v1/spaces/${VITE_CONTENTFUL_SPACE_ID}/environments/master?access_token=${VITE_CONTENTFUL_ACCESS_TOKEN}
+generates:
+  ./generated/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
