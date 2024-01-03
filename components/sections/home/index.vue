@@ -26,7 +26,7 @@
     </SectionHeader>
     <address>
       London-based · {{ phone }} ·{{ " " }}
-      <a :href="`mailto:${email}`">{{ email }}</a>
+      <Anchor :href="`mailto:${email}`">{{ email }}</Anchor>
     </address>
     <p class="mt-4 text-gray-900 dark:text-white">{{ shortBio }}</p>
     <div class="ml-6 mt-4 grid justify-start space-y-4">
