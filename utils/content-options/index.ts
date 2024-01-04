@@ -1,5 +1,9 @@
 import type { Options } from "../rich-text-vue-renderer";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+
+enum MARKS {
+  BOLD = "bold",
+}
 
 const options: Options = {
   renderMark: {

@@ -2,10 +2,7 @@
 import { cloneVNode } from "vue";
 import type { VNode } from "vue";
 
-export function appendKeyToValidElement(
-  element: JSX.Element,
-  key: number,
-): VNode {
+export function appendKeyToValidElement(element: VNode, key: number): VNode {
   // if (element.key === null) {
   if (element.hasOwnProperty("key")) {
     return cloneVNode(element, { key });

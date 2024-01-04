@@ -6,8 +6,8 @@
 
   import styles from "./styles.module.css";
 
-  const { experiences } = defineProps({
-    experiences: {
+  const { experience } = defineProps({
+    experience: {
       type: Array<ExperienceCompany>,
       default: [],
     },
@@ -25,7 +25,7 @@
         description,
         endDate,
         startDate,
-      } in experiences"
+      } in experience"
       :key="`company-name-${companyName}`"
       :class="styles.container"
     >

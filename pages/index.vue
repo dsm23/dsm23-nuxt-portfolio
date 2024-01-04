@@ -16,10 +16,10 @@
   <SectionsHome id="home" :author="person" />
   <Divisor />
 
-  <!-- <SectionsExperience id="experience" experience="{experience()}" />
+  <SectionsExperience id="experience" :experience="experience" />
   <Divisor />
 
-  <SectionsEducation id="education" education="{education()}" />
+  <!-- <SectionsEducation id="education" education="{education()}" />
   <Divisor /> -->
 
   <SectionsSkills id="skills" :skills="skills" />
