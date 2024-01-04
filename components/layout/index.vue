@@ -30,7 +30,7 @@
 <template>
   <div class="flex w-full flex-col font-sans lg:flex-row">
     <header class="contents">
-      <Nav :open="open" :on-toggle="handleToggle" :on-close="handleClose">
+      <Nav :open="open" @toggle="handleToggle" @close="handleClose">
         <div
           class="block w-full text-gray-400 md:ml-auto md:flex md:w-auto md:items-start lg:block lg:h-auto lg:items-center"
           v-if="isIndexPage"
