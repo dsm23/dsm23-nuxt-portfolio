@@ -32,3 +32,20 @@
 .hamburger.open .bottom {
   rotate: -45deg;
 }
+
+@media (prefers-reduced-motion) {
+  .hamburger .line {
+    transition:
+      y 0ms ease-in 0ms,
+      rotate 0ms ease-in,
+      opacity 0ms 0ms;
+    transform-origin: center;
+  }
+
+  .hamburger.open .line {
+    transition:
+      y 0ms ease-in,
+      rotate 0ms ease-in 0ms,
+      opacity 0ms 0ms;
+  }
+}
