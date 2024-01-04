@@ -1,6 +1,8 @@
 vueIndentScriptAndStyle: true
 plugins:
+  - prettier-plugin-css-order
   - prettier-plugin-tailwindcss
+cssDeclarationSorterOrder: smacss
 tailwindConfig: ./tailwind.config.js
 tailwindFunctions:
   - clsx

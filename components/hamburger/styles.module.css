@@ -3,11 +3,11 @@
 }
 
 .hamburger .line {
+  transform-origin: center;
   transition:
     y 150ms ease-in 150ms,
     rotate 150ms ease-in,
     opacity 0ms 150ms;
-  transform-origin: center;
 }
 
 .hamburger.open .line {
@@ -35,11 +35,11 @@
 
 @media (prefers-reduced-motion) {
   .hamburger .line {
+    transform-origin: center;
     transition:
       y 0ms ease-in 0ms,
       rotate 0ms ease-in,
       opacity 0ms 0ms;
-    transform-origin: center;
   }
 
   .hamburger.open .line {

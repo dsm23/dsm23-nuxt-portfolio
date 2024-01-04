@@ -1,16 +1,16 @@
 .container {
   @apply top-0 z-10 bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900;
-  padding: theme(padding.3);
   display: grid;
   position: sticky;
-  width: 100%;
-  isolation: isolate;
-  justify-content: space-between;
-  align-items: center;
 
   grid-template-areas:
     "profile icon"
     "sections sections";
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: theme(padding.3);
+  isolation: isolate;
 }
 
 .icon {
@@ -39,14 +39,14 @@
 
 @media screen(lg) {
   .container {
-    height: 100%;
-    width: theme(width.64);
-    align-content: center;
-    justify-content: center;
-    min-height: 100dvh;
     grid-template-areas:
       "profile"
       "sections";
+    align-content: center;
+    justify-content: center;
+    width: theme(width.64);
+    height: 100%;
+    min-height: 100dvh;
   }
 
   .icon {
