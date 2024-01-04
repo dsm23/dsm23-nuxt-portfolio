@@ -29,7 +29,7 @@ export function nodeToVueComponent(node: CommonNode, options: Options): VNode {
   } else {
     const children: VNode = nodeListToVueComponents(node.content, options);
     if (!node.nodeType || !renderNode[node.nodeType]) {
-      return h("div", {}, children);
+      return h("div", { class: "contents" }, children);
     }
     return renderNode[node.nodeType](node, children);
   }

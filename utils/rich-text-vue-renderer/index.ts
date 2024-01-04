@@ -1,6 +1,6 @@
 import { h } from "vue";
 import type { VNode } from "vue";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type {
   Block,
   Document,
@@ -39,6 +39,15 @@ const defaultNodeRenderers: RenderNode = {
   [INLINES.HYPERLINK]: (node, children) =>
     h("a", { href: node.data.uri }, children),
 };
+
+enum MARKS {
+  BOLD = "bold",
+  ITALIC = "italic",
+  UNDERLINE = "underline",
+  CODE = "code",
+  SUPERSCRIPT = "superscript",
+  SUBSCRIPT = "subscript",
+}
 
 const defaultMarkRenderers: RenderMark = {
   [MARKS.BOLD]: (text) => h("b", {}, text),
