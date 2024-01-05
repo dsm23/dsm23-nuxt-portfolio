@@ -11,24 +11,26 @@
 </script>
 
 <template>
-  <h1 class="sr-only">David Murdoch's Portfolio</h1>
+  <Main class="w-full px-6 py-8">
+    <h1 class="sr-only">David Murdoch's Portfolio</h1>
 
-  <SectionsHome id="home" :author="person" />
-  <Divisor />
+    <SectionsHome id="home" :author="person" />
+    <Divisor />
 
-  <SectionsExperience id="experience" :experience="experience" />
-  <Divisor />
+    <SectionsExperience id="experience" :experience="experience" />
+    <Divisor />
 
-  <SectionsEducation id="education" :education="education" />
-  <Divisor />
+    <SectionsEducation id="education" :education="education" />
+    <Divisor />
 
-  <SectionsSkills id="skills" :skills="skills" />
-  <Divisor />
-  <!-- <SectionsProjects id="projects" />  -->
+    <SectionsSkills id="skills" :skills="skills" />
+    <Divisor />
+    <SectionsProjects id="projects" />
 
-  <Divisor />
-  <SectionsInterests id="interests" :interests="interests" />
+    <Divisor />
+    <SectionsInterests id="interests" :interests="interests" />
 
-  <Divisor />
-  <SectionsDownload id="download" />
+    <Divisor />
+    <SectionsDownload id="download" />
+  </Main>
 </template>
