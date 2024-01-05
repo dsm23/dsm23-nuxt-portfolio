@@ -1,4 +1,11 @@
 <script setup lang="ts">
+  import hljs from "highlight.js/lib/core";
+  import javascript from "highlight.js/lib/languages/javascript";
+
+  import "highlight.js/styles/github-dark-dimmed.min.css";
+
+  hljs.registerLanguage("javascript", javascript);
+
   const listItems = Array.from({ length: 100 }, (_, i) => {
     const num = i + 1;
 
@@ -24,9 +31,10 @@
 
     <h1 class="text-4xl uppercase tracking-widest text-sky-600">FizzBuzz</h1>
 
-    <div class="flex justify-center">
-      <pre class="whitespace-pre-wrap break-normal font-mono">
-          {{
+    <pre
+      class="hljs my-4 whitespace-pre-wrap break-normal py-3 font-mono"
+      v-html="
+        hljs.highlight(
           `
             switch (true) {
               case num % 3 === 0 && num % 5 === 0: {
@@ -41,11 +49,13 @@
               default:
                 return num;
             }
-          `
-        }}
-        </pre
-      >
-    </div>
+          `,
+          {
+            language: 'javascript',
+          },
+        ).value
+      "
+    />
 
     <ul role="list" class="space-y-3">
       <li
