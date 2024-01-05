@@ -1,0 +1,37 @@
+.container {
+  @apply mt-6;
+}
+
+.city {
+  @apply ml-2 mt-px;
+  grid-area: city;
+}
+
+.school {
+  @apply mt-4 text-3xl;
+  grid-area: school;
+}
+
+.dates {
+  @apply mt-2 font-semibold text-sky-900 dark:text-sky-300;
+  grid-area: dates;
+}
+
+.description {
+  @apply mt-4 text-gray-900 dark:text-white;
+  grid-area: description;
+}
+
+@media screen(lg) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-areas:
+      "school dates"
+      "description dates";
+  }
+
+  .dates {
+    @apply mt-0;
+  }
+}
