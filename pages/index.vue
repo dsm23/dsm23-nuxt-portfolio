@@ -19,8 +19,8 @@
   <SectionsExperience id="experience" :experience="experience" />
   <Divisor />
 
-  <!-- <SectionsEducation id="education" education="{education()}" />
-  <Divisor /> -->
+  <SectionsEducation id="education" :education="education" />
+  <Divisor />
 
   <SectionsSkills id="skills" :skills="skills" />
   <Divisor />
