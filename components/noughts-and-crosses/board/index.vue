@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-0">
+  <div class="grid grid-cols-[repeat(3,_15vmin)] gap-0">
     <NoughtsAndCrossesSquare
       v-for="index in indices"
       :key="`board-${index}`"

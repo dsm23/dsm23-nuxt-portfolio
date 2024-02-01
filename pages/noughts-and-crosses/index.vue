@@ -5,11 +5,12 @@
       Noughts and Crosses
     </h1>
 
-    <p class="text-gray-900">
-      The tutorial example from{" "}
+    <p>
+      The tutorial example from
       <Anchor href="https://reactjs.org/tutorial/tutorial.html">
-        reactjs docs </Anchor
-      >{" "} re-styled and with types
+        reactjs docs
+      </Anchor>
+      re-styled and with types
     </p>
 
     <NoughtsAndCrossesGame />
