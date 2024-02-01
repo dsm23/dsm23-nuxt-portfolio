@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useClickOutside } from "../../hooks/useClickOutside";
+  import { getProfilePic } from "~/utils/api";
 
   import styles from "./styles.module.css";
 
@@ -21,9 +22,12 @@
     emit("close");
   });
 
-  //  const [profilePic] = createResource(async () => {
-  //   return await getProfilePic();
-  // });
+  const { data } = useAsyncData(getProfilePic);
+
+  const src = computed(() => data.value?.image?.url as string | undefined);
+  const alt = computed(
+    () => data.value?.image?.description as string | undefined,
+  );
 </script>
 
 <template>
@@ -32,11 +36,16 @@
       href="/#home"
       class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mb-4 lg:mr-0 lg:rounded-full lg:border-8 lg:border-sky-700"
     >
-      <!-- <img
-          src={profilePic()?.image?.url}
-          class="aspect-square w-10 rounded-full object-cover lg:w-48"
-          alt={profilePic()?.image?.description}
-        /> -->
+      <NuxtImg
+        :src="src"
+        class="aspect-square w-10 rounded-full object-cover lg:w-48"
+        :alt="alt"
+        format="webp"
+        height="192"
+        width="192"
+        sizes="40px lg:192px"
+        placeholder
+      />
 
       <span
         class="ml-4 hidden text-xl font-bold tracking-wide text-white md:inline lg:hidden print:inline"
