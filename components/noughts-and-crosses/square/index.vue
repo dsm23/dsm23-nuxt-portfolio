@@ -1,5 +1,5 @@
 <template>
-  <button class="h-20 w-full border md:h-40">
+  <button class="aspect-square w-full border">
     <slot />
   </button>
 </template>
