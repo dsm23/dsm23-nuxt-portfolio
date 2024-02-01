@@ -10,7 +10,7 @@
       default: resolveComponent("NuxtLink"),
     },
     class: {
-      type: Object as PropType<ClassNameValue>,
+      type: [String, Object] as PropType<ClassNameValue>,
     },
   });
 
