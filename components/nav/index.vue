@@ -39,12 +39,12 @@
         /> -->
 
       <span
-        class="ml-4 hidden text-xl font-bold tracking-wide text-white print:inline md:inline lg:hidden"
+        class="ml-4 hidden text-xl font-bold tracking-wide text-white md:inline lg:hidden print:inline"
       >
         David Murdoch
       </span>
       <span
-        class="ml-4 inline text-xl font-bold tracking-wide text-white print:hidden md:hidden"
+        class="ml-4 inline text-xl font-bold tracking-wide text-white md:hidden print:hidden"
       >
         DSM
       </span>
