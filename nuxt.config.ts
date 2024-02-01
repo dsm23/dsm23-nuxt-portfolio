@@ -10,6 +10,6 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/test-utils/module"],
   nitro: {
-    preset: "netlify_edge",
+    preset: "netlify",
   },
 });
