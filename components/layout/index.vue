@@ -37,10 +37,7 @@
           <NuxtLink
             :href="`/#${label}`"
             :key="label"
-            :class="[
-              styles.navLink,
-              'group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center',
-            ]"
+            :class="[styles.navLink, 'group']"
             v-for="label in items"
           >
             <span
