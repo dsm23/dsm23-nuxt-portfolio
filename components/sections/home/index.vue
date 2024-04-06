@@ -33,7 +33,7 @@
       <a
         :href="github"
         aria-label="GitHub"
-        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 p-2 px-4 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
+        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 px-4 py-2 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -44,7 +44,7 @@
       <a
         :href="codesandbox"
         aria-label="CodeSandbox"
-        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 p-2 px-4 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
+        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 px-4 py-2 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -54,8 +54,8 @@
       </a>
 
       <a
-        href="https://react-david-murdoch-portfolio.netlify.com/"
-        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 p-2 px-4 text-white transition duration-500 ease-in-out hover:scale-110 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
+        href="https://react-david-murdoch-portfolio.netlify.app/"
+        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 px-4 py-2 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -64,8 +64,8 @@
         <SvgsArrowTopRightOnSquare class="h-4 w-4" />
       </a>
       <a
-        href="https://dsm23-next-portfolio.vercel.com/"
-        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 p-2 px-4 text-white transition duration-500 ease-in-out hover:scale-110 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
+        href="https://dsm23-next-portfolio.vercel.app/"
+        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 px-4 py-2 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -75,7 +75,7 @@
       </a>
       <a
         href="https://dsm23-solid-start-portfolio.netlify.app/"
-        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 p-2 px-4 text-white transition duration-500 ease-in-out hover:scale-110 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
+        class="flex transform items-center justify-between gap-x-4 rounded-full bg-gray-900 px-4 py-2 text-white transition duration-500 ease-in-out hover:scale-125 hover:bg-sky-900 focus-visible:scale-125 focus-visible:bg-sky-900"
         rel="noopener noreferrer"
         target="_blank"
       >
