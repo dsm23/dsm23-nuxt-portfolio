@@ -1,7 +1,8 @@
 .container {
-  @apply top-0 z-10 bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900;
   display: grid;
+  z-index: theme(zIndex.10);
   position: sticky;
+  top: 0;
 
   grid-template-areas:
     "profile icon"
@@ -10,6 +11,13 @@
   justify-content: space-between;
   width: 100%;
   padding: theme(padding.3);
+
+  background-image: linear-gradient(
+    to right,
+    theme(backgroundColor.sky.700),
+    theme(backgroundColor.sky.800),
+    theme(backgroundColor.sky.900)
+  );
   isolation: isolate;
 }
 
