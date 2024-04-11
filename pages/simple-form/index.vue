@@ -45,7 +45,7 @@
     //       .or(z.literal("guacamole")),
     //   )
     //   .min(1),
-    // stooge: z.literal("larry").or(z.literal("moe")).or(z.literal("curly")),
+    stooge: z.literal("larry").or(z.literal("moe")).or(z.literal("curly")),
     // notes: z.string(),
   });
 
@@ -104,6 +104,36 @@
             <Input v-bind="componentField" />
           </FormControl>
           <FormDescription />
+          <FormMessage />
+        </FormItem>
+      </FormField>
+
+      <FormField v-slot="{ componentField }" type="radio" name="stooge">
+        <FormItem class="space-y-3">
+          <FormLabel>Best Stooge</FormLabel>
+
+          <FormControl>
+            <RadioGroup class="flex flex-col space-y-1" v-bind="componentField">
+              <FormItem class="flex items-center gap-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="larry" />
+                </FormControl>
+                <FormLabel class="font-normal"> Larry </FormLabel>
+              </FormItem>
+              <FormItem class="flex items-center gap-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="moe" />
+                </FormControl>
+                <FormLabel class="font-normal"> Moe </FormLabel>
+              </FormItem>
+              <FormItem class="flex items-center gap-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="curly" />
+                </FormControl>
+                <FormLabel class="font-normal"> Curly </FormLabel>
+              </FormItem>
+            </RadioGroup>
+          </FormControl>
           <FormMessage />
         </FormItem>
       </FormField>
