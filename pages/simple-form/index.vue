@@ -21,21 +21,21 @@
       message: "Last Name is required",
     }),
     // employed: z.boolean(),
-    // favoriteColour: z
-    //   .literal("#ff0000")
-    //   .or(z.literal("#00ff00"))
-    //   .or(z.literal("#0000ff")),
-    // toppings: z
-    //   .array(
-    //     z
-    //       .literal("chicken")
-    //       .or(z.literal("ham"))
-    //       .or(z.literal("mushrooms"))
-    //       .or(z.literal("cheese"))
-    //       .or(z.literal("tuna"))
-    //       .or(z.literal("pineapple")),
-    //   )
-    //   .min(1),
+    favoriteColour: z
+      .literal("#ff0000")
+      .or(z.literal("#00ff00"))
+      .or(z.literal("#0000ff")),
+    toppings: z
+      .array(
+        z
+          .literal("chicken")
+          .or(z.literal("ham"))
+          .or(z.literal("mushrooms"))
+          .or(z.literal("cheese"))
+          .or(z.literal("tuna"))
+          .or(z.literal("pineapple")),
+      )
+      .min(1),
     // sauces: z
     //   .array(
     //     z
@@ -126,6 +126,65 @@
               <Input v-bind="componentField" />
             </FormControl>
             <FormDescription />
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <FormField v-slot="{ componentField }" name="favoriteColour">
+          <FormItem>
+            <FormLabel>Favourite Colour</FormLabel>
+
+            <Select v-bind="componentField">
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a colour" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="#ff0000">❤️ Red</SelectItem>
+                  <SelectItem value="#00ff00">💚 Green</SelectItem>
+                  <SelectItem value="#0000ff">💙 Blue</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <FormDescription>
+              This is just a description for test purposes.
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <FormField v-slot="{ componentField }" name="toppings">
+          <FormItem>
+            <FormLabel>Toppings</FormLabel>
+            <FormControl>
+              <select
+                v-bind="componentField"
+                multiple
+                @change="
+                  (event) =>
+                    (event.target as HTMLSelectElement).selectedOptions != null
+                      ? componentField.onChange(
+                          [
+                            ...(event.target as HTMLSelectElement)
+                              .selectedOptions,
+                          ].map((opt) => opt.value),
+                        )
+                      : componentField.onChange([])
+                "
+              >
+                <option value="chicken">🐓 Chicken</option>
+                <option value="ham">🐷 Ham</option>
+                <option value="mushrooms">🍄 Mushrooms</option>
+                <option value="cheese">🧀 Cheese</option>
+                <option value="tuna">🐟 Tuna</option>
+                <option value="pineapple">🍍 Pineapple</option>
+              </select>
+            </FormControl>
+            <FormDescription>
+              This is just a description for test purposes.
+            </FormDescription>
             <FormMessage />
           </FormItem>
         </FormField>
