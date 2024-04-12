@@ -82,73 +82,99 @@
 
 <template>
   <Main class="w-full px-6 py-8">
-    <Form
-      :validation-schema="toTypedSchema(schema)"
-      @submit="onSubmit"
-      v-slot="{ errors, handleReset, isSubmitting, values }"
-    >
-      <FormField v-slot="{ componentField }" name="firstName">
-        <FormItem>
-          <FormLabel>First Name</FormLabel>
-          <FormControl>
-            <Input v-bind="componentField" />
-          </FormControl>
-          <FormDescription />
-          <FormMessage />
-        </FormItem>
-      </FormField>
-      <FormField v-slot="{ componentField }" name="lastName">
-        <FormItem>
-          <FormLabel>Last Name</FormLabel>
-          <FormControl>
-            <Input v-bind="componentField" />
-          </FormControl>
-          <FormDescription />
-          <FormMessage />
-        </FormItem>
-      </FormField>
+    <GoBack class="mb-4" href="/#projects" />
 
-      <FormField v-slot="{ componentField }" type="radio" name="stooge">
-        <FormItem class="space-y-3">
-          <FormLabel>Best Stooge</FormLabel>
+    <h1 class="text-4xl uppercase tracking-widest text-sky-600">Simple form</h1>
 
-          <FormControl>
-            <RadioGroup class="flex flex-col space-y-1" v-bind="componentField">
-              <FormItem class="flex items-center gap-x-3 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="larry" />
-                </FormControl>
-                <FormLabel class="font-normal"> Larry </FormLabel>
-              </FormItem>
-              <FormItem class="flex items-center gap-x-3 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="moe" />
-                </FormControl>
-                <FormLabel class="font-normal"> Moe </FormLabel>
-              </FormItem>
-              <FormItem class="flex items-center gap-x-3 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="curly" />
-                </FormControl>
-                <FormLabel class="font-normal"> Curly </FormLabel>
-              </FormItem>
-            </RadioGroup>
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      </FormField>
+    <p>
+      An example of a simple form using
+      <Anchor
+        href="https://vee-validate.logaretm.com/v4/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >VeeValidate</Anchor
+      >
+      and
+      <Anchor
+        href="https://www.shadcn-vue.com/docs/components/form.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        >shadcn-vue</Anchor
+      >
+    </p>
 
-      <pre>{{ JSON.stringify(values, null, 2) }}</pre>
+    <div className="container mx-auto">
+      <Form
+        :validation-schema="toTypedSchema(schema)"
+        @submit="onSubmit"
+        v-slot="{ errors, handleReset, isSubmitting, values }"
+      >
+        <FormField v-slot="{ componentField }" name="firstName">
+          <FormItem>
+            <FormLabel>First Name</FormLabel>
+            <FormControl>
+              <Input v-bind="componentField" />
+            </FormControl>
+            <FormDescription />
+            <FormMessage />
+          </FormItem>
+        </FormField>
+        <FormField v-slot="{ componentField }" name="lastName">
+          <FormItem>
+            <FormLabel>Last Name</FormLabel>
+            <FormControl>
+              <Input v-bind="componentField" />
+            </FormControl>
+            <FormDescription />
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
-      <pre>{{ JSON.stringify(errors, null, 2) }}</pre>
+        <FormField v-slot="{ componentField }" type="radio" name="stooge">
+          <FormItem class="space-y-3">
+            <FormLabel>Best Stooge</FormLabel>
 
-      <div className="mb-8 flex space-x-4">
-        <button type="button" variant="outline" @click="() => handleReset()">
-          Reset
-        </button>
-        <button type="submit" :disabled="isSubmitting">Submit</button>
-      </div>
-    </Form>
+            <FormControl>
+              <RadioGroup
+                class="flex flex-col space-y-1"
+                v-bind="componentField"
+              >
+                <FormItem class="flex items-center gap-x-3 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem value="larry" />
+                  </FormControl>
+                  <FormLabel class="font-normal"> Larry </FormLabel>
+                </FormItem>
+                <FormItem class="flex items-center gap-x-3 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem value="moe" />
+                  </FormControl>
+                  <FormLabel class="font-normal"> Moe </FormLabel>
+                </FormItem>
+                <FormItem class="flex items-center gap-x-3 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem value="curly" />
+                  </FormControl>
+                  <FormLabel class="font-normal"> Curly </FormLabel>
+                </FormItem>
+              </RadioGroup>
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <pre>{{ JSON.stringify(values, null, 2) }}</pre>
+
+        <pre>{{ JSON.stringify(errors, null, 2) }}</pre>
+
+        <div className="mb-8 flex space-x-4">
+          <button type="button" variant="outline" @click="() => handleReset()">
+            Reset
+          </button>
+          <button type="submit" :disabled="isSubmitting">Submit</button>
+        </div>
+      </Form>
+    </div>
     <Toaster rich-colors />
   </Main>
 </template>
