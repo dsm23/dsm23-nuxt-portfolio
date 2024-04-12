@@ -5,13 +5,6 @@
   import { toast } from "vue-sonner";
   import { z } from "zod";
   import sleep from "~/utils/sleep";
-  // import { maxLength, minLength, string } from "valibot";
-  // import type { Output } from "valibot";
-
-  // const schema = object({
-  //   firstName: string([minLength(2), maxLength(50)]),
-  //   lastName: string([minLength(2), maxLength(50)]),
-  // });
 
   const schema = z.object({
     firstName: z.string().min(1, {
@@ -20,7 +13,7 @@
     lastName: z.string().min(1, {
       message: "Last Name is required",
     }),
-    // employed: z.boolean(),
+    employed: z.boolean(),
     favoriteColour: z
       .literal("#ff0000")
       .or(z.literal("#00ff00"))
@@ -36,34 +29,18 @@
           .or(z.literal("pineapple")),
       )
       .min(1),
-    // sauces: z
-    //   .array(
-    //     z
-    //       .literal("ketchup")
-    //       .or(z.literal("mustard"))
-    //       .or(z.literal("mayonnaise"))
-    //       .or(z.literal("guacamole")),
-    //   )
-    //   .min(1),
+    sauces: z
+      .array(
+        z
+          .literal("ketchup")
+          .or(z.literal("mustard"))
+          .or(z.literal("mayonnaise"))
+          .or(z.literal("guacamole")),
+      )
+      .min(1),
     stooge: z.literal("larry").or(z.literal("moe")).or(z.literal("curly")),
     notes: z.string(),
   });
-
-  // const schema = Yup.object().shape({
-  //   firstName: Yup.string()
-  //     .min(2, "Too Short!")
-  //     .max(50, "Too Long!")
-  //     .required("Required"),
-  //   lastName: Yup.string()
-  //     .min(2, "Too Short!")
-  //     .max(50, "Too Long!")
-  //     .required("Required"),
-  //   email: Yup.string().email("Invalid email").required("Required"),
-  //   checkboxes: Yup.array().min(2, "Too Few!").max(2, "Too Many!"),
-  //   stooge: Yup.string().required("Required"),
-  //   toppings: Yup.array().required("Required"),
-  //   test: Yup.string().required("Required"),
-  // });
 
   type Values = z.infer<typeof schema>;
 
@@ -78,6 +55,25 @@
 
     await sleep(9000);
   };
+
+  const items = [
+    {
+      id: "ketchup",
+      label: "Ketchup",
+    },
+    {
+      id: "mustard",
+      label: "Mustard",
+    },
+    {
+      id: "mayonnaise",
+      label: "Mayonnaise",
+    },
+    {
+      id: "guacamole",
+      label: "Guacamole",
+    },
+  ] as const;
 </script>
 
 <template>
@@ -127,6 +123,27 @@
             </FormControl>
             <FormDescription />
             <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <FormField
+          v-slot="{ value, handleChange }"
+          type="checkbox"
+          name="employed"
+        >
+          <FormItem
+            class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4"
+          >
+            <FormControl>
+              <Checkbox :checked="value" @update:checked="handleChange" />
+            </FormControl>
+            <div class="space-y-1 leading-none">
+              <FormLabel>Employed</FormLabel>
+              <FormDescription>
+                This is just a description for test purposes.
+              </FormDescription>
+              <FormMessage />
+            </div>
           </FormItem>
         </FormField>
 
@@ -182,6 +199,41 @@
                 <option value="pineapple">🍍 Pineapple</option>
               </select>
             </FormControl>
+            <FormDescription>
+              This is just a description for test purposes.
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <FormField name="sauces">
+          <FormItem>
+            <div class="mb-4">
+              <FormLabel class="text-base"> Sauces </FormLabel>
+              <FormDescription> Select any sauces </FormDescription>
+            </div>
+
+            <FormField
+              v-for="item in items"
+              v-slot="{ value, handleChange }"
+              :key="item.id"
+              type="checkbox"
+              :value="item.id"
+              :unchecked-value="false"
+              name="items"
+            >
+              <FormItem class="flex flex-row items-start space-x-3 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    :checked="value?.includes(item.id)"
+                    @update:checked="handleChange"
+                  />
+                </FormControl>
+                <FormLabel class="font-normal">
+                  {{ item.label }}
+                </FormLabel>
+              </FormItem>
+            </FormField>
             <FormDescription>
               This is just a description for test purposes.
             </FormDescription>
