@@ -46,7 +46,7 @@
     //   )
     //   .min(1),
     stooge: z.literal("larry").or(z.literal("moe")).or(z.literal("curly")),
-    // notes: z.string(),
+    notes: z.string(),
   });
 
   // const schema = Yup.object().shape({
@@ -218,6 +218,19 @@
                 </FormItem>
               </RadioGroup>
             </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <FormField v-slot="{ componentField }" name="notes">
+          <FormItem>
+            <FormLabel>Notes</FormLabel>
+            <FormControl>
+              <Textarea v-bind="componentField" />
+            </FormControl>
+            <FormDescription>
+              This is just a description for test purposes.
+            </FormDescription>
             <FormMessage />
           </FormItem>
         </FormField>
