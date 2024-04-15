@@ -36,7 +36,21 @@
       <SvgsArrowDownTray class="h-5 w-5" />
       Download this page as .pdf
 
-      <SvgsThreeDots v-if="status === 'pending'" />
+      <Transition
+        class="grid"
+        enter-active-class="transition-[grid-template-columns] motion-reduce:transition-none duration-150"
+        enter-from-class="grid-cols-[0fr]"
+        enter-to-class="grid-cols-[1fr]"
+        leave-active-class="transition-[grid-template-columns] motion-reduce:transition-none duration-150"
+        leave-from-class="grid-cols-[1fr]"
+        leave-to-class="grid-cols-[0fr]"
+      >
+        <div v-if="status === 'pending'">
+          <div class="overflow-hidden">
+            <SvgsThreeDots class="h-5 w-5" />
+          </div>
+        </div>
+      </Transition>
     </button>
     <pre class="mt-4 whitespace-pre-wrap break-normal font-mono">
         gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen
